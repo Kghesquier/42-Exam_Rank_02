@@ -3,7 +3,7 @@
 size_t	ft_strspn(const char *s, const char *accept)
 {
     size_t i = 0;
-    int j;
+    size_t j;
     int found;
 
     while (s[i])

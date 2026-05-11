@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
     int n1;
     int n2;
-    int res;
+    int res = 0;
 
     if (argc == 4)
     {
