@@ -24,9 +24,48 @@ int ft_atoi(char *str)
     return (nb * sign);
 }
 
+void    ft_putnbr(int i)
+{
+    char res;
+    if (i >= 10)
+        ft_putnbr(i / 10);
+    res = (i % 10 + '0');
+    write(1, &res, 1);
+}
+
 int ft_is_prime(int i)
 {
-    if (i % 1 == 0 && i % i == 0)
+    int nb = 2;
+    if (i < nb)
+        return (0);
+    while (nb * nb <= i)
     {
+        if (i % nb == 0)
+            return (0);
+        nb++;
     }
+    return (1);
+}
+
+int main(int argc, char ** argv)
+{
+    int i = 0;
+    int n;
+    int sum = 0;
+
+    if (argc != 2 || ft_atoi(argv[1]) <= 0)
+    {
+        write(1, "0\n", 2);
+        return (0);
+    }
+    n = ft_atoi(argv[1]);
+    while (i <= n)
+    {
+        if (ft_is_prime(i))
+            sum += i;
+        i++;
+    }
+    ft_putnbr(sum);
+    write(1, "\n", 1);
+    return (0);
 }
