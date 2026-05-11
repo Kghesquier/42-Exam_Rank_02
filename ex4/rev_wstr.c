@@ -14,7 +14,7 @@ int ft_strlen(char *str)
 int main(int argc, char **argv)
 {
     int i;
-    int j;
+    int end;
     int k;
 
     if (argc != 2)
@@ -22,13 +22,22 @@ int main(int argc, char **argv)
         write(1, "\n", 1);
         return (0);
     }
-    i = ft_strlen(argv[1]);
-    while (argv[1][i - 1] != ' ' || argv[1][i - 1] != '\t')
-        i--;
-    k = i - 1;
-    while (argv[1][i])
+    i = ft_strlen(argv[1]) - 1;
+    while (i >= 0)
     {
-        write(1, &argv[1][i], 1);
-        i++;
+        end = i;
+        while (i >= 0 && argv[1][i] != ' ' && argv[1][i] != '\t')
+            i--;
+        k = i + 1;
+        while (k <= end)
+        {
+            write(1, &argv[1][k], 1);
+            k++;
+        }
+        i--;
+        if (i >= 0)
+            write(1, " ", 1);
     }
+    write(1, "\n", 1);
+    return (0);
 }

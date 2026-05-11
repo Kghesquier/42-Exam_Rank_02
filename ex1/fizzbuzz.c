@@ -29,8 +29,8 @@ int main()
         }
         else if (i >= 10)
         {
-            j = i % 10;
             k = i / 10;
+            j = i % 10;
             ft_putchar(k + '0');
             ft_putchar(j + '0');
             write(1, "\n", 1);
