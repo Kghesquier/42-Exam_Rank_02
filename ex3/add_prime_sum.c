@@ -36,9 +36,9 @@ void    ft_putnbr(int i)
 int ft_is_prime(int i)
 {
     int nb = 2;
-    if (i < nb)
+    if (i < 2)
         return (0);
-    while (nb * nb <= i)
+    while (nb < i)
     {
         if (i % nb == 0)
             return (0);
